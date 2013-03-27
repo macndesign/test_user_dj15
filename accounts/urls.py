@@ -1,27 +1,11 @@
-"""
-URLconf for registration and activation.
-
-add this line in your root URLconf to set up the default URLs
-for django-registration-email::
-
-(r'^accounts/', include('registration_withemail.urls')),
-
-This will also automatically set up the views in ``django.contrib.auth``.
-
-If you'd like to customize the behavior (e.g., by passing extra
-arguments to the various views) or split up the URLs, feel free to set
-up your own URL patterns for these views instead.
-
-"""
-
 from django.conf.urls import patterns, url
 from django.views.generic import TemplateView
-from registration.forms import EldonUserAuthenticationForm
-from registration.views import register, activate
+from accounts.forms import UserAuthenticationForm
+from accounts.views import register, activate
 
 urlpatterns = patterns('',
                        url(r'^activate/complete/$',
-                           TemplateView.as_view(template_name="registration/activation_complete.html"),
+                           TemplateView.as_view(template_name="accounts/activation_complete.html"),
                            name='registration_activation_complete'),
                        # Activation keys get matched by \w+ instead of the more specific
                        # [a-fA-F0-9]{40} because a bad activation key should still get to the view;
@@ -29,13 +13,13 @@ urlpatterns = patterns('',
                        url(r'^activate/(?P<activation_key>\w+)/$', activate, name='registration_activate'),
                        url(r'^register/$', register, name='registration_register'),
                        url(r'^register/complete/$',
-                           TemplateView.as_view(template_name="registration/registration_complete.html"),
+                           TemplateView.as_view(template_name="accounts/registration_complete.html"),
                            name='registration_complete'),
 
                        # Auth urls
                        url(r'^login/$', 'django.contrib.auth.views.login',
-                           {'template_name': 'registration/login.html',
-                            'authentication_form': EldonUserAuthenticationForm}, name='auth_login'),
+                           {'template_name': 'accounts/login.html',
+                            'authentication_form': UserAuthenticationForm}, name='auth_login'),
                        url(r'^logout/$', 'django.contrib.auth.views.logout', name='auth_logout'),
                        url(r'^password/change/$', 'django.contrib.auth.views.password_change',
                            name='auth_password_change'),

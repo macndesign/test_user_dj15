@@ -4,7 +4,7 @@ URLs used in the unit tests for django-registration-email.
 
 from django.conf.urls import patterns, include, url
 
-from registration.views import activate, register
+from accounts.views import activate, register
 
 js_info_dict = {
     'domain': 'djangojs',
@@ -43,5 +43,5 @@ urlpatterns += patterns('',
                             name='registration_test_activate_success_url'),
 
                         # Default urls
-                        (r'', include('registration.urls')),
+                        (r'', include('accounts.urls')),
 )
