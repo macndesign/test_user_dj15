@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
 from django.views.generic import TemplateView
 from accounts.forms import UserAuthenticationForm
-from accounts.views import register, activate
+from accounts.views import register, activate, profile
 
 urlpatterns = patterns('',
                        url(r'^activate/complete/$',
@@ -34,4 +34,7 @@ urlpatterns = patterns('',
                            name='auth_password_reset_confirm'),
                        url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_complete',
                            name='auth_password_reset_complete'),
+
+                       # Profile
+                       url(r'^profile/$', profile),
 )

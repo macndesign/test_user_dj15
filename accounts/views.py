@@ -68,3 +68,6 @@ def activate(request, activation_key, template_name='accounts/activate.html',
     return render_to_response(template_name,
                               kwargs,
                               context_instance=context)
+
+def profile(request):
+    return render_to_response('accounts/profile.html', {'user': request.user}, context_instance=RequestContext(request))
