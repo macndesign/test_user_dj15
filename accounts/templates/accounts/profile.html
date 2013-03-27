@@ -1,5 +1,5 @@
 {% extends "accounts/registration_base.html" %}
 {% block title %}Profile{% endblock %}
 {% block content %}
-    {{ user }}
+    {{ user.get_full_name }}
 {% endblock %}

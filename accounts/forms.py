@@ -21,7 +21,6 @@ class UserCreationForm(forms.ModelForm):
 
     if getattr(settings, 'ADD_RECAPTCHA', False):
         from captcha.fields import ReCaptchaField
-
         captcha = ReCaptchaField(attrs={'theme': 'custom', 'custom_theme_widget': 'recaptcha_widget'})
 
     class Meta:
