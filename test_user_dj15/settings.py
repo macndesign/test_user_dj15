@@ -120,18 +120,18 @@ ACCOUNT_ACTIVATION_DAYS = 3
 # Adds a term of service checkbox to the registration form
 ADD_TOS = True
 
-# Adds recaptcha to the registration form
-ADD_RECAPTCHA = False
-
 # if True, the user will be immediately logged in after his account activation.
 AUTHENTICATE_WHEN_ACTIVATE = True
+
+# Adds recaptcha to the registration form
+ADD_RECAPTCHA = True
 
 # ReCaptcha (teste.com)
 RECAPTCHA_PUBLIC_KEY = '6LdvA98SAAAAAMzMQuA7_p6Vtf49_oE6j6uE5IRA'
 RECAPTCHA_PRIVATE_KEY = '6LdvA98SAAAAAIL3F0Onb6PSkHlapQvJbrHFRp8I'
 RECAPTCHA_USE_SSL = False
 
-ALLOWED_HOSTS = ['teste.com']
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -146,8 +146,8 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     #'registration',
     'accounts',
-    'captcha',
     'core',
+    'recaptcha',
 )
 
 # A sample logging configuration. The only tangible logging

@@ -20,8 +20,8 @@ class UserCreationForm(forms.ModelForm):
                                  error_messages={'required': _("You must agree to the terms to register")})
 
     if getattr(settings, 'ADD_RECAPTCHA', False):
-        from captcha.fields import ReCaptchaField
-        captcha = ReCaptchaField(attrs={'theme': 'custom', 'custom_theme_widget': 'recaptcha_widget'})
+        from recaptcha.fields import ReCaptchaField
+        captcha = ReCaptchaField(label='Im a human')
 
     class Meta:
         model = User
