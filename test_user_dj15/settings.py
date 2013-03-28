@@ -127,11 +127,12 @@ AUTHENTICATE_WHEN_ACTIVATE = True
 ADD_RECAPTCHA = True
 
 # ReCaptcha (teste.com)
-RECAPTCHA_PUBLIC_KEY = '6LdvA98SAAAAAMzMQuA7_p6Vtf49_oE6j6uE5IRA'
-RECAPTCHA_PRIVATE_KEY = '6LdvA98SAAAAAIL3F0Onb6PSkHlapQvJbrHFRp8I'
+import os
+RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY', '6LdvA98SAAAAAMzMQuA7_p6Vtf49_oE6j6uE5IRA')
+RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY', '6LdvA98SAAAAAIL3F0Onb6PSkHlapQvJbrHFRp8I')
 RECAPTCHA_USE_SSL = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost']
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -180,9 +181,10 @@ LOGGING = {
 }
 
 # Email
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'pagetrue@gmail.com'
-EMAIL_HOST_PASSWORD = 'metal666999'
-EMAIL_SUBJECT_PREFIX = 'Contato do site'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_HOST_USER = 'email@localhost'
+EMAIL_HOST_PASSWORD = 'S3cr3t3'
+EMAIL_SUBJECT_PREFIX = '[EMAIL]'
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = False
