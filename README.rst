@@ -60,6 +60,8 @@ Settings
 requirements.txt
 ----------------
 
+.. line-block::
+
     Django==1.5
     Unipath==0.2.1
     distribute==0.6.35
